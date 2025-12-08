@@ -2,7 +2,7 @@
 PROJECT CONFIG
 '''
 project_config = {
-    'name':'threat_detection',
+    'name':'threat_detection', # change this on new run :)
     'path':'./data',
     'runs':'./runs'
 }
@@ -17,7 +17,7 @@ training_config = {
 }
 
 inference_config = {
-    'weights':'./runs/threat_detection/weights/best.pt',
+    'weights':f"./runs/{project_config['name']}/weights/best.pt",
     'confidence': 0.5,
     'test_images':'./data/test/images',
     'size':640

@@ -38,7 +38,7 @@ class YoloTrainer:
 
 if __name__ == "__main__":
 
-    path_dataset = './military_dataset'
+    path_dataset = './data'
     path_yaml = 'data.yaml'
 
     

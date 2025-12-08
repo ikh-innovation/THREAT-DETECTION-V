@@ -8,6 +8,7 @@ class YoloDatasetInspector:
         self.dataset_info = {}
         self._load_data_yaml()
         self._gather_dataset_info()
+        print()
 
     def _load_data_yaml(self):
         """Load data.yaml file to get class names and number of classes."""
@@ -55,9 +56,8 @@ class YoloDatasetInspector:
         """Return dataset info as dictionary."""
         return self.dataset_info
 
-# Example usage:
 if __name__ == "__main__":
-    dataset_dir = "./military_dataset"
+    dataset_dir = "./data"
     inspector = YoloDatasetInspector(dataset_dir)
     inspector.print_summary()
     info = inspector.get_info()
