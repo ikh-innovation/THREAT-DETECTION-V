@@ -209,6 +209,7 @@ __marimo__/
 
 # Project Specific
 data/
+data_ext/
 military_dataset/
 runs/
 

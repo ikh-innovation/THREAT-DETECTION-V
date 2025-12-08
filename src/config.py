@@ -18,7 +18,7 @@ training_config = {
 
 inference_config = {
     'weights':f"./runs/{project_config['name']}/weights/best.pt",
-    'confidence': 0.5,
+    'confidence': 0.6,
     'test_images':'./data/test/images',
     'size':640
 }

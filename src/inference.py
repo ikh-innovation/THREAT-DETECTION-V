@@ -15,6 +15,45 @@ class YoloInferencer:
         self.images_path = path_images
         self.conf = conf
 
+    def run_video_inference(self, video_path: str):
+        """Run YOLO inference on a video file."""
+
+        if not os.path.isfile(video_path):
+            print(f"Error: Video file not found: {video_path}")
+            return
+
+        cap = cv2.VideoCapture(video_path)
+
+        if not cap.isOpened():
+            print("Error: Could not open video:", video_path)
+            return
+
+        print("Running video inference... Press 'q' to quit.")
+
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                print("End of video.")
+                break
+
+            results = self.model.predict(
+                source=cv2.resize(frame, (640,640)),
+                conf=self.conf,
+                iou=0.8,
+                max_det=10,
+                verbose=False
+            )
+
+            annotated = results[0].plot()
+
+            cv2.imshow("YOLOv8 Video Inference", annotated)
+
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+
+        cap.release()
+        cv2.destroyAllWindows()
+
     def run_image_folder_inference(self):
 
         if not os.path.isdir(self.images_path):
@@ -64,12 +103,13 @@ class YoloInferencer:
 
 if __name__ == "__main__":
 
-    path_images = "./data/test/images"
+    video_path = "./data_ext/sample_videos/2.mp4"
 
     yolo_inferencer = YoloInferencer(
         path_weights=inference_config['weights'],
-        path_images=path_images,
+        path_images="./data_ext/sample_dataset/test/images",
         conf=inference_config['confidence']
     )
 
+    yolo_inferencer.run_video_inference(video_path)
     yolo_inferencer.run_image_folder_inference()
