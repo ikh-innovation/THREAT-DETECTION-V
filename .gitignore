@@ -205,5 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-data/
 *.txt
+
+# Project Specific
+data/
+military_dataset/
+runs/
+
+.yolo11n.pot
+.yolov8n.pt

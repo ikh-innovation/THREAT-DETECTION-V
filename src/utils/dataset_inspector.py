@@ -57,7 +57,7 @@ class YoloDatasetInspector:
 
 # Example usage:
 if __name__ == "__main__":
-    dataset_dir = "./data"
+    dataset_dir = "./military_dataset"
     inspector = YoloDatasetInspector(dataset_dir)
     inspector.print_summary()
     info = inspector.get_info()
