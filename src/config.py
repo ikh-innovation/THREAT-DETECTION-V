@@ -11,8 +11,8 @@ TRAINING & INFERENCE
 '''
 training_config = {
     'model':'yolov8n.pt',
-    'epochs': 100,
-    'batch': 8,
+    'epochs': 150,
+    'batch': 16,
     'size': 640
 }
 
