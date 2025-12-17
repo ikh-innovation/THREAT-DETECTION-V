@@ -21,7 +21,6 @@ class YoloInferencer:
             print(f"Error: Folder not found: {self.images_path}")
             return
 
-        # Collect images
         exts = (".jpg", ".jpeg", ".png", ".bmp")
         image_files = [
             os.path.join(self.images_path, f)

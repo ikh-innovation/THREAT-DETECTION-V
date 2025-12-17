@@ -10,7 +10,7 @@ project_config = {
 TRAINING & INFERENCE
 '''
 training_config = {
-    'model':'yolov8n.pt',
+    'model':'yolov8.pt',
     'epochs': 150,
     'batch': 16,
     'size': 640
