@@ -10,15 +10,15 @@ project_config = {
 TRAINING & INFERENCE
 '''
 training_config = {
-    'model':'yolov8.pt',
+    'model':'yolov8s.pt',
     'epochs': 150,
-    'batch': 16,
-    'size': 640
+    'batch': 8,
+    'size': 512
 }
 
 inference_config = {
     'weights':'./runs/threat_detection/weights/best.pt',
     'confidence': 0.5,
     'test_images':'./data/test/images',
-    'size':640
+    'size':512
 }

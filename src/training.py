@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     path_dataset = './data'
     path_yaml = 'data.yaml'
-
+    
     
     yolo_trainer = YoloTrainer(path_dataset= path_dataset,
                                path_yaml= path_yaml)
