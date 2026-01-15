@@ -1,11 +1,13 @@
 import os
 
-data_path = 'DATAPATH/1' #Folder containing data
+data_path = 'DATAPATH/5' #Folder containing data
 
 class_to_be_changed = {
     1: 0, # old class: new class
-    2: 1,
+    2: 0,
     3: 0,
+    9: 0,
+    10: 0,
 }
 
 if not os.path.isdir(data_path):

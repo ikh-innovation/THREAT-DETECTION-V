@@ -1,8 +1,8 @@
 import os
 
-data_path = 'DATAPATH/1' #Folder containing data
+data_path = 'DATAPATH/5' #Folder containing data
 
-classes_to_be_removed = {0}   # Set of class IDs to remove
+classes_to_be_removed = {4,5,6,7,8}   # Set of class IDs to remove
 image_extensions = {".jpg", ".jpeg", ".png"}  # Supported image formats
 
 if not os.path.isdir(data_path):

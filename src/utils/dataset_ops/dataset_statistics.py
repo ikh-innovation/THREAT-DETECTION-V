@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data_path = 'DATAPATH/1' #Folder containing data
+data_path = 'DATAPATH/5' #Folder containing data
 
 image_extensions = ["jpg", "jpeg", "png"]  # Supported image formats
 
