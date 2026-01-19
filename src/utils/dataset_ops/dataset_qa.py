@@ -23,6 +23,7 @@ class DatasetQA:
         self.set_name = set_name
         self.max_images = max_images
         self.max_cols = max_cols
+        self.vis_size = 500  # all visualizations will be 500x500
     
     def _draw_bboxes(self, img, label_file):
         """
@@ -81,7 +82,8 @@ class DatasetQA:
             print(f"No images found in {images_dir}")
             return []
         
-        image_files = sorted(glob.glob(os.path.join(images_dir, '*.jpg')))
+        image_files = sorted(glob.glob(os.path.join(images_dir, '*.*')))
+        image_files = [f for f in image_files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.webp'))]
         label_files = [os.path.join(labels_dir, os.path.splitext(os.path.basename(f))[0]+'.txt') 
                        for f in image_files]
         return list(zip(image_files, label_files))
@@ -115,23 +117,20 @@ class DatasetQA:
                 img_path, label_path = random.choice(imgs)
                 img = cv2.imread(img_path)         
                 img = self._draw_bboxes(img, label_path)
+                img = cv2.resize(img, (self.vis_size, self.vis_size))  # force 500x500
                 imgs_to_show.append(img)
             
             if not imgs_to_show:
                 continue
             
+            # Arrange in rows of max_cols
             rows = []
             for i in range(0, len(imgs_to_show), self.max_cols):
                 row_imgs = imgs_to_show[i:i+self.max_cols]
-                if len(row_imgs) < self.max_cols:
-                    h = row_imgs[0].shape[0]
-                    w = row_imgs[0].shape[1]
-                    for _ in range(self.max_cols - len(row_imgs)):
-                        row_imgs.append(np.zeros((h,w,3), dtype=np.uint8))
-                min_height = min(img.shape[0] for img in row_imgs)
-                row_imgs_resized = [cv2.resize(img, (int(img.shape[1]*min_height/img.shape[0]), min_height))
-                                    for img in row_imgs]
-                row_concat = cv2.hconcat(row_imgs_resized)
+                # fill empty slots with black images
+                while len(row_imgs) < self.max_cols:
+                    row_imgs.append(np.zeros((self.vis_size, self.vis_size, 3), dtype=np.uint8))
+                row_concat = cv2.hconcat(row_imgs)
                 rows.append(row_concat)
             
             concat_img = cv2.vconcat(rows)
