@@ -2,7 +2,7 @@
 PROJECT CONFIG
 '''
 project_config = {
-    'name':'runlolol',
+    'name':'threat_detection', # change this on new run :)
     'path':'./data',
     'runs':'./runs'
 }
@@ -10,15 +10,15 @@ project_config = {
 TRAINING & INFERENCE
 '''
 training_config = {
-    'model':'yolov8s.pt',
-    'epochs': 150,
+    'model':'yolov8n.pt',
+    'epochs': 100,
     'batch': 8,
-    'size': 2
+    'size': 640
 }
 
 inference_config = {
-    'weights':'./runs/threat_detection/weights/best.pt',
-    'confidence': 0.5,
+    'weights':f"./runs/{project_config['name']}/weights/best.pt",
+    'confidence': 0.6,
     'test_images':'./data/test/images',
-    'size':2
+    'size':640
 }
