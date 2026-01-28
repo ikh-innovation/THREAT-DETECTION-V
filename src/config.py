@@ -2,7 +2,7 @@
 PROJECT CONFIG
 '''
 project_config = {
-    'name':'26/1/26', # change this on new run :)
+    'name':'v0', # change this on new run :)
     'path':'./data',
     'runs':'./runs'
 }
