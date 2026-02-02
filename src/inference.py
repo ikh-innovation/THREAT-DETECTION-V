@@ -63,7 +63,7 @@ class YoloInferencer:
 
 if __name__ == "__main__":
 
-    path_images = "./data/test/images"
+    path_images = "./data/valid/images"
 
     yolo_inferencer = YoloInferencer(
         path_weights=inference_config['weights'],

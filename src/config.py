@@ -2,7 +2,7 @@
 PROJECT CONFIG
 '''
 project_config = {
-    'name':'26/1/26', # change this on new run :)
+    'name':'v0', # change this on new run :)
     'path':'./data',
     'runs':'./runs'
 }
@@ -11,8 +11,8 @@ TRAINING & INFERENCE
 '''
 training_config = {
     'model':'yolov8n.pt',
-    'epochs': 100,
-    'batch': 8,
+    'epochs': 150,
+    'batch': 16,
     'size': 640
 }
 

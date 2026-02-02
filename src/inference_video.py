@@ -46,7 +46,7 @@ class YoloVideoInferencer:
         cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    path_video = "./data_external/3.mp4"
+    path_video = "./data_external/5.mp4"
 
     yolo_inferencer = YoloVideoInferencer(
         path_weights=inference_config['weights'],
