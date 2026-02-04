@@ -32,7 +32,7 @@ class YoloVideoInferencer:
                 source=frame,
                 conf=self.conf,
                 iou=0.8,
-                max_det=4,
+                # max_det=4,
                 verbose=False
             )
 

@@ -11,14 +11,14 @@ TRAINING & INFERENCE
 '''
 training_config = {
     'model':'yolov8n.pt',
-    'epochs': 150,
+    'epochs': 250,
     'batch': 16,
     'size': 640
 }
 
 inference_config = {
     'weights':f"./runs/{project_config['name']}/weights/best.pt",
-    'confidence': 0.6,
+    'confidence': 0.5,
     'test_images':'./data/test/images',
     'size':640
 }

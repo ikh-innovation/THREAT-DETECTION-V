@@ -45,8 +45,9 @@ class YoloInferencer:
             results = self.model.predict(
                 source=img,
                 conf=self.conf,
-                iou=0.8,
-                max_det=4,
+                iou=0.1,
+                # max_det=1,
+                imgsz = 640,
                 verbose=False
             )
 
