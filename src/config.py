@@ -32,7 +32,8 @@ classification_training_config = {
 
 inference_config = {
     'weights':f"./runs/{project_config['name']}/weights/best.pt",
-    'confidence': 0.5,
+    'confidence': 0.4,
+    'classifier_confidence': 0.9,
     'test_images':'./data/test/images',
     'size':640
 }
@@ -40,5 +41,4 @@ inference_config = {
 inference_classification_config = {
     'weights':f"./runs/classify/classifier_runs/{project_classification_config['name']}/weights/best.pt",
     'confidence': 0.5,
-    'size':640
 }
